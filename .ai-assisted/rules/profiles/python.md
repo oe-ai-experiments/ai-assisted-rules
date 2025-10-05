@@ -1,6 +1,8 @@
----
-description: Python-specific programming guidelines for Claude Code
+id: rules.lang.python
+version: 1.0.0
+description: Python-specific programming guidelines for AI assistants
 globs: ["**/*.py", "**/pyproject.toml", "**/requirements.txt", "**/Pipfile", "**/setup.py"]
+tags: ["language", "python"]
 ---
 
 # Python-Specific Guidelines

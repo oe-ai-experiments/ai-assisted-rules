@@ -26,6 +26,6 @@ See `README.md` for example schemas and entry templates.
   - Do not `git commit` or perform destructive actions without explicit user instruction.
 
 ## Rules Reference
-- Full collaboration rules live at `.ai-assisted/rules/assistant-rules.md` and apply repo-wide.
-- Those rules are assistant-agnostic and reference the canonical files listed here.
-
+- Rules live under `.ai-assisted/rules` and are indexed by `.ai-assisted/rules/registry.yaml`.
+- Core contract: `.ai-assisted/rules/core/assistant-rules.md` (applies repo-wide).
+- Tool adapters: `.ai-assisted/rules/tools/` for Codex CLI and Claude Code specifics.

@@ -1,10 +1,49 @@
 {
   "session_start": "",
-  "current_focus": "",
-  "files_modified": [],
+  "current_focus": "Adopt modular rules structure; add registry, tool adapters, templates, and secret-scan hooks",
+  "files_modified": [
+    "Claude.md",
+    ".ai-assisted/rules/core/assistant-rules.md",
+    ".ai-assisted/rules/profiles/python.md",
+    ".ai-assisted/rules/profiles/javascript.md",
+    ".ai-assisted/rules/profiles/ios.md",
+    ".ai-assisted/rules/tools/codex-cli.md",
+    ".ai-assisted/rules/tools/claude-code.md",
+    ".ai-assisted/rules/registry.yaml",
+    ".ai-assisted/rules/_schema.md",
+    ".ai-assisted/rules/_schema.frontmatter.json",
+    ".ai-assisted/rules/_schema.registry.json",
+    ".ai-assisted/rules/templates/ai_state.example.json",
+    ".ai-assisted/rules/templates/PROJECT_DECISIONS.entry.md",
+    ".ai-assisted/rules/templates/LESSONS_LEARNED.entry.md",
+    ".ai-assisted/rules/templates/FUTURE_CONSIDERATIONS.entry.md",
+    ".ai-assisted/rules/templates/prompts/claude/shared-system-prompt.md",
+    ".ai-assisted/rules/templates/prompts/codex/shared-system-prompt.md",
+    ".ai-assisted/bootstrap/init.sh",
+    ".ai-assisted/bootstrap/verify.sh",
+    ".ai-assisted/bootstrap/install-hooks.sh",
+    ".ai-assisted/bootstrap/link-claude.sh",
+    ".ai-assisted/hooks/pre-commit",
+    ".gitleaks.toml",
+    "AGENTS.md",
+    "README.md",
+    "PROJECT_DECISIONS.md",
+    "LESSONS_LEARNED.md",
+    "FUTURE_CONSIDERATIONS.md"
+  ],
   "pending_tasks": [],
-  "completed": [],
-  "next_steps": [],
+  "completed": [
+    "Scaffolded rules structure and migrated language files",
+    "Added registry, schemas, and tool adapters",
+    "Added templates, bootstrap scripts, hooks, and gitleaks config",
+    "Updated AGENTS.md, README.md, and root Claude.md",
+    "Recorded decision, lesson, and future item",
+    "Added sync script and removed submodule guidance"
+  ],
+  "next_steps": [
+    "Install hooks: bash .ai-assisted/bootstrap/install-hooks.sh",
+    "Optionally symlink prompts: bash .ai-assisted/bootstrap/link-claude.sh"
+  ],
   "blockers": [],
   "last_checkpoint": ""
 }

@@ -1,0 +1,41 @@
+# Minimal gitleaks configuration focusing on common high-signal rules.
+
+[extend]
+path = ""
+
+[[rules]]
+id = "generic-api-key"
+description = "Generic API Key"
+regex = '''(?i)(api|token|key|secret)[^\n]{0,20}[:=][^\n]{0,5}[\"']?[0-9a-zA-Z-_]{16,}[\"']?'''
+tags = ["key", "api", "generic"]
+
+[[rules]]
+id = "aws-access-key"
+description = "AWS Access Key"
+regex = '''AKIA[0-9A-Z]{16}'''
+tags = ["key", "aws"]
+
+[[rules]]
+id = "github-pat"
+description = "GitHub Personal Access Token"
+regex = '''ghp_[0-9A-Za-z]{36,}'''
+tags = ["key", "github"]
+
+[[rules]]
+id = "slack-token"
+description = "Slack Token"
+regex = '''xox[baprs]-[0-9A-Za-z-]{20,}'''
+tags = ["key", "slack"]
+
+[[rules]]
+id = "stripe-live"
+description = "Stripe Live Secret Key"
+regex = '''sk_live_[0-9A-Za-z]{24,}'''
+tags = ["key", "stripe"]
+
+[[rules]]
+id = "pem-private-key"
+description = "PEM Private Key Block"
+regex = '''-----BEGIN (RSA|DSA|EC) PRIVATE KEY-----'''
+tags = ["key", "pem"]
+

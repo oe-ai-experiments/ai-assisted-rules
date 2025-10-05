@@ -1,6 +1,8 @@
----
-description: iOS/Swift-specific programming guidelines for Claude Code
+id: rules.lang.ios
+version: 1.0.0
+description: iOS/Swift-specific programming guidelines for AI assistants
 globs: ["**/*.swift", "**/*.m", "**/*.h", "**/Podfile", "**/*.xcodeproj", "**/*.xcworkspace", "**/Package.swift"]
+tags: ["language", "ios"]
 ---
 
 # iOS/Swift-Specific Guidelines

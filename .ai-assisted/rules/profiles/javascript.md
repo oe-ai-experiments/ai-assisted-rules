@@ -1,6 +1,8 @@
----
-description: JavaScript-specific programming guidelines for Claude Code
+id: rules.lang.javascript
+version: 1.0.0
+description: JavaScript-specific programming guidelines for AI assistants
 globs: ["**/*.js", "**/*.jsx", "**/*.mjs", "**/package.json", "**/*.json"]
+tags: ["language", "javascript"]
 ---
 
 # JavaScript-Specific Guidelines

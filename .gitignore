@@ -1,1 +1,25 @@
+
+# OS noise
+.DS_Store
+
+# Env and secrets
+.env*
+*.pem
+*.key
+*.p12
+
+# Transient
+logs/
+tmp/
+cache/
+downloads/
+attachments/
+sessions/
+history/
+transcripts/
+
+# Databases and locks
+*.db
+*.sqlite
+*.lock
 *.log

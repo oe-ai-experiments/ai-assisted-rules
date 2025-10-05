@@ -40,4 +40,19 @@ This repository uses a shared, tool-agnostic setup so any coding assistant (Gemi
 - On HIGH/CRITICAL risks, pause, checkpoint to `.ai_state`, and request user input before proceeding.
 
 ## Rules reference
-The full collaboration rules are defined in `.ai-assisted/rules/assistant-rules.md`. These rules apply repository-wide and reference the four files above as the single source of truth.
+- Rules are organized under `.ai-assisted/rules` and indexed by `.ai-assisted/rules/registry.yaml`.
+- Core: `.ai-assisted/rules/core/assistant-rules.md`.
+- Tool adapters: `.ai-assisted/rules/tools/` (Codex CLI, Claude Code).
+
+## Reuse in new projects (Copy-in)
+
+- Copy `.ai-assisted/`, `AGENTS.md`, and `Claude.md` to the new repo root.
+- Run: `bash .ai-assisted/bootstrap/init.sh` then `bash .ai-assisted/bootstrap/verify.sh`.
+- Install hooks: `bash .ai-assisted/bootstrap/install-hooks.sh` (install `gitleaks` for best results).
+- Optional: `bash .ai-assisted/bootstrap/link-claude.sh` to symlink prompts to `~/.claude/prompts/`.
+
+### Updating later
+- Use the helper script to sync from your canonical rules repo:
+  - Dry run: `bash scripts/sync-rules.sh /path/to/ai-assisted-rules`
+  - Apply: `bash scripts/sync-rules.sh /path/to/ai-assisted-rules --apply`
+  - Optional cleanup: add `--delete` to remove files no longer present upstream (use with care).

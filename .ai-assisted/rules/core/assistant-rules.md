@@ -1,3 +1,5 @@
+id: rules.core.assistant
+version: 1.0.0
 description: Core partnership rules for effective working with Ovidiu - Language Agnostic
 globs: ["**/*"]
 alwaysApply: true

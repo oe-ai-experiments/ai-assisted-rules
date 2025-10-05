@@ -5,3 +5,10 @@
 - Periodically prune or summarize long logs
 - Add a script to append templated entries via CLI
 
+## 2025-10-05 Suggestion: Add optional TruffleHog integration
+
+Situation
+- Pre-commit uses gitleaks with regex fallback.
+
+Future suggestions
+- Provide optional TruffleHog deep scan script for CI usage.
