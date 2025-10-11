@@ -1,31 +1,40 @@
 # AGENTS
 
-This file provides guidance for AI assistants working in this repository.
+Single reference for everyone collaborating with Ovidiu alongside AI assistants.
 
-- Scope: Entire repository.
-- Audience: Gemini CLI, Claude Code, Cursor, Codex CLI, and similar tools.
+## Canonical Logs (always present at repo root)
+- `.ai_state` — session context; update after milestones or pauses.
+- `PROJECT_DECISIONS.md` — record what you decided and why.
+- `LESSONS_LEARNED.md` — capture new insights as they appear.
+- `FUTURE_CONSIDERATIONS.md` — backlog of ideas and follow-ups.
 
-## Canonical Context Files (repo root)
-- `.ai_state` — Session state (JSON). Single source of truth.
-- `PROJECT_DECISIONS.md` — Decision log (what/why).
-- `LESSONS_LEARNED.md` — Accumulated insights.
-- `FUTURE_CONSIDERATIONS.md` — Ideas and future improvements.
+## Daily Assistant Routine
+1. Read `.ai_state`, then skim the three logs to refresh context.
+2. State what you are about to do; update `.ai_state` as work progresses.
+3. Append decisions/lessons/future items immediately when they happen.
+4. If writes are blocked, output patches or formatted log entries for a human to apply.
+5. Pause and ask Ovidiu whenever a HIGH/CRITICAL risk appears.
 
-See `README.md` for example schemas and entry templates.
+## Manual Setup (new repository copy-in)
+- Copy `AGENTS.md`, `Claude.md`, and `Codex.md` into the new project.
+- Ensure the four canonical logs exist. If `.ai_state` is missing, create it with the template below (adjust values as needed):
+  ```json
+  {
+    "session_start": "",
+    "current_focus": "",
+    "files_modified": [],
+    "pending_tasks": [],
+    "completed": [],
+    "next_steps": [],
+    "blockers": [],
+    "last_checkpoint": ""
+  }
+  ```
+- (Optional) Reuse `.ai-assisted/hooks/pre-commit` by copying it into `.git/hooks/pre-commit` and making it executable.
 
-## Required Assistant Routine
-- Startup
-  - Read `.ai_state` and scan the three Markdown logs.
-  - If filesystem writes are blocked, emit patches or log entries in the response for manual application.
-- During work
-  - Update `.ai_state` after milestones, escalations, and context switches.
-  - Append decisions, lessons, and future considerations as they occur.
-  - On HIGH/CRITICAL risks, pause, checkpoint to `.ai_state`, and ask for user input.
-- Constraints
-  - Do not create tool-specific state files; use only the canonical files above.
-  - Do not `git commit` or perform destructive actions without explicit user instruction.
+## Assistant-Specific Guides
+- Claude Code: `Claude.md` — single file quickstart, daily flow, and safe prompt guidance.
+- Codex CLI: `Codex.md` — planning protocol, patching expectations, and validation approach.
+- Other assistants should default to the same routine described here.
 
-## Rules Reference
-- Rules live under `.ai-assisted/rules` and are indexed by `.ai-assisted/rules/registry.yaml`.
-- Core contract: `.ai-assisted/rules/core/assistant-rules.md` (applies repo-wide).
-- Tool adapters: `.ai-assisted/rules/tools/` for Codex CLI and Claude Code specifics.
+Keep all instructions in these shared files; avoid scattering tool-specific rules elsewhere unless absolutely required.

@@ -1,58 +1,79 @@
 # AI-Assisted Project Context
 
-This repository uses a shared, tool-agnostic setup so any coding assistant (Gemini CLI, Claude Code, Cursor, Codex CLI) can load the same context and follow the same rules.
+Minimal, tool-agnostic guidance so any assistant (Claude Code, Codex CLI, Cursor, Gemini, …) can operate safely with Ovidiu.
 
-## Canonical Files (repo root)
-- `.ai_state` — Current session state (JSON). Read before starting; update after milestones, escalations, and context switches.
-- `PROJECT_DECISIONS.md` — Decision log (what/why). Append entries as you make choices.
-- `LESSONS_LEARNED.md` — Accumulated insights from work and debugging.
-- `FUTURE_CONSIDERATIONS.md` — Ideas and potential improvements to revisit later.
+## Canonical Files (always at repo root)
+- `.ai_state` — shared session state; update after milestones or pauses.
+- `PROJECT_DECISIONS.md` — record choices and rationale.
+- `LESSONS_LEARNED.md` — capture insights discovered while working.
+- `FUTURE_CONSIDERATIONS.md` — note follow-ups or ideas for later.
 
-## Expected `.ai_state` shape
+### `.ai_state` Template
 ```json
 {
-  "session_start": "ISO-8601 timestamp",
-  "current_focus": "short task summary",
+  "session_start": "",
+  "current_focus": "",
   "files_modified": [],
   "pending_tasks": [],
   "completed": [],
   "next_steps": [],
   "blockers": [],
-  "last_checkpoint": "ISO-8601 timestamp"
+  "last_checkpoint": ""
 }
 ```
 
-## Log entry templates
-- PROJECT_DECISIONS.md
-  - `## [Date] Decision: [Title]`
-  - Context, Options Considered, Choice, Rationale
-- LESSONS_LEARNED.md
-  - `## [Date] Lesson: [Title]`
-  - Situation, Learning, Application
-- FUTURE_CONSIDERATIONS.md
-  - `## [Date] Suggestion: [Title]`
-  - Situation, Future suggestions (bulleted with motivation)
+### Log Entry Templates
+- `PROJECT_DECISIONS.md`
+  ```
+  ## 2025-10-11 Decision: Title
+  Context
+  - ...
+  Options Considered
+  - ...
+  Choice
+  - ...
+  Rationale
+  - ...
+  ```
+- `LESSONS_LEARNED.md`
+  ```
+  ## 2025-10-11 Lesson: Title
+  Situation
+  - ...
+  Learning
+  - ...
+  Application
+  - ...
+  ```
+- `FUTURE_CONSIDERATIONS.md`
+  ```
+  ## 2025-10-11 Suggestion: Title
+  Situation
+  - ...
+  Future suggestions
+  - ...
+  ```
 
-## Usage guidance (all assistants)
-- Read `.ai_state` and scan the three logs at session start.
-- Write decisions/lessons/future items as they occur (don’t wait until the end).
-- If filesystem writes are blocked, output the exact patch or log entry in your response for manual application.
-- On HIGH/CRITICAL risks, pause, checkpoint to `.ai_state`, and request user input before proceeding.
+## Daily Cadence (all assistants)
+1. Read `.ai_state`, then skim the three logs for context.
+2. Declare your plan; keep it updated as work progresses.
+3. Annotate `.ai_state` and the logs in real time—never defer until the end.
+4. If writes are blocked, provide ready-to-paste patches or log entries.
+5. Pause for HIGH/CRITICAL risks and ask Ovidiu before proceeding.
 
-## Rules reference
-- Rules are organized under `.ai-assisted/rules` and indexed by `.ai-assisted/rules/registry.yaml`.
-- Core: `.ai-assisted/rules/core/assistant-rules.md`.
-- Tool adapters: `.ai-assisted/rules/tools/` (Codex CLI, Claude Code).
+## Manual Copy-In (new repository)
+1. Copy `AGENTS.md`, `Claude.md`, `Codex.md`, and optionally `.ai-assisted/hooks/pre-commit`.
+2. Create the four canonical log files (use the templates above).
+3. For secret scanning, copy `.ai-assisted/hooks/pre-commit` into `.git/hooks/pre-commit` and run `chmod +x .git/hooks/pre-commit`. Install `gitleaks` locally to enable deep scans; otherwise the fallback regex check still runs.
+4. Update project-specific details (e.g., repo name, preferred prompts) directly in these Markdown files.
 
-## Reuse in new projects (Copy-in)
+## Assistant Guides
+- `Claude.md` — Claude Code-specific quickstart, context pinning, escalation, prompt hygiene.
+- `Codex.md` — Codex CLI plan discipline, patching expectations, validation philosophy.
+- Other assistants can rely on `AGENTS.md` plus the shared cadence.
 
-- Copy `.ai-assisted/`, `AGENTS.md`, and `Claude.md` to the new repo root.
-- Run: `bash .ai-assisted/bootstrap/init.sh` then `bash .ai-assisted/bootstrap/verify.sh`.
-- Install hooks: `bash .ai-assisted/bootstrap/install-hooks.sh` (install `gitleaks` for best results).
-- Optional: `bash .ai-assisted/bootstrap/link-claude.sh` to symlink prompts to `~/.claude/prompts/`.
+## Optional Resources
+- `.ai-assisted/hooks/pre-commit` — ready-to-copy secret scan hook.
+- `.ai-assisted/bootstrap/` — legacy automation scripts available if you prefer scripted setup.
 
-### Updating later
-- Use the helper script to sync from your canonical rules repo:
-  - Dry run: `bash scripts/sync-rules.sh /path/to/ai-assisted-rules`
-  - Apply: `bash scripts/sync-rules.sh /path/to/ai-assisted-rules --apply`
-  - Optional cleanup: add `--delete` to remove files no longer present upstream (use with care).
+Keep everything human-readable and in sync. When expectations change, update the relevant Markdown files and log the decision in `PROJECT_DECISIONS.md`.

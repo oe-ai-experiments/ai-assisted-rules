@@ -1,35 +1,15 @@
 {
-  "session_start": "",
-  "current_focus": "Adopt modular rules structure; add registry, tool adapters, templates, and secret-scan hooks",
+  "session_start": "2025-10-11T15:17:39Z",
+  "current_focus": "Remove legacy rules tree and update manuals",
   "files_modified": [
-    "Claude.md",
-    ".ai-assisted/rules/core/assistant-rules.md",
-    ".ai-assisted/rules/profiles/python.md",
-    ".ai-assisted/rules/profiles/javascript.md",
-    ".ai-assisted/rules/profiles/ios.md",
-    ".ai-assisted/rules/tools/codex-cli.md",
-    ".ai-assisted/rules/tools/claude-code.md",
-    ".ai-assisted/rules/registry.yaml",
-    ".ai-assisted/rules/_schema.md",
-    ".ai-assisted/rules/_schema.frontmatter.json",
-    ".ai-assisted/rules/_schema.registry.json",
-    ".ai-assisted/rules/templates/ai_state.example.json",
-    ".ai-assisted/rules/templates/PROJECT_DECISIONS.entry.md",
-    ".ai-assisted/rules/templates/LESSONS_LEARNED.entry.md",
-    ".ai-assisted/rules/templates/FUTURE_CONSIDERATIONS.entry.md",
-    ".ai-assisted/rules/templates/prompts/claude/shared-system-prompt.md",
-    ".ai-assisted/rules/templates/prompts/codex/shared-system-prompt.md",
-    ".ai-assisted/bootstrap/init.sh",
-    ".ai-assisted/bootstrap/verify.sh",
-    ".ai-assisted/bootstrap/install-hooks.sh",
-    ".ai-assisted/bootstrap/link-claude.sh",
-    ".ai-assisted/hooks/pre-commit",
-    ".gitleaks.toml",
     "AGENTS.md",
+    "Claude.md",
+    "Codex.md",
     "README.md",
+    "FUTURE_CONSIDERATIONS.md",
     "PROJECT_DECISIONS.md",
-    "LESSONS_LEARNED.md",
-    "FUTURE_CONSIDERATIONS.md"
+    ".ai_state",
+    ".ai-assisted/rules"
   ],
   "pending_tasks": [],
   "completed": [
@@ -38,12 +18,15 @@
     "Added templates, bootstrap scripts, hooks, and gitleaks config",
     "Updated AGENTS.md, README.md, and root Claude.md",
     "Recorded decision, lesson, and future item",
-    "Added sync script and removed submodule guidance"
+    "Added sync script and removed submodule guidance",
+    "2025-10-11 Documented repo structure and rule layout (Codex analysis)",
+    "2025-10-11 Consolidated Claude and Codex guidance into single manuals",
+    "2025-10-11 Removed legacy .ai-assisted/rules tree per Ovidiu request"
   ],
   "next_steps": [
-    "Install hooks: bash .ai-assisted/bootstrap/install-hooks.sh",
-    "Optionally symlink prompts: bash .ai-assisted/bootstrap/link-claude.sh"
+    "Share updated Claude.md and Codex.md with collaborators",
+    "Notify downstream projects that previously synced the rules tree"
   ],
   "blockers": [],
-  "last_checkpoint": ""
+  "last_checkpoint": "2025-10-11T15:36:24Z"
 }

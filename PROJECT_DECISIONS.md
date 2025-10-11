@@ -33,3 +33,33 @@ Choice
 
 Rationale
 - Removes submodule complexity while still allowing periodic updates.
+
+## 2025-10-11 Decision: Consolidate assistant quickstarts
+
+Context
+- Multiple rule files plus bootstrap scripts made onboarding harder for individual assistants.
+
+Options Considered
+- Keep the modular registry with per-tool adapters and shell scripts.
+- Replace per-tool files with a single Markdown manual for each assistant and describe manual setup steps.
+
+Choice
+- Provide one `Claude.md` and one `Codex.md` quickstart, expand `AGENTS.md`, and update `README.md` with manual copy-in guidance.
+
+Rationale
+- Reduces cognitive load, matches Ovidiu's preference for minimal files, and removes the need to run shell scripts while keeping canonical logs.
+
+## 2025-10-11 Decision: Remove legacy .ai-assisted/rules directory
+
+Context
+- After introducing single-file manuals, the modular rules tree was redundant and increased maintenance overhead.
+
+Options Considered
+- Keep the directory as archived reference material.
+- Delete the directory entirely and rely on the new Markdown guides.
+
+Choice
+- Delete `.ai-assisted/rules` and point assistants to `Claude.md`, `Codex.md`, and `AGENTS.md`.
+
+Rationale
+- Simplifies onboarding, eliminates outdated instructions, and avoids confusion from parallel guidance sources.
