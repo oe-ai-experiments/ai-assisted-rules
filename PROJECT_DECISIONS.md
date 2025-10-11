@@ -26,13 +26,13 @@ Context
 
 Options Considered
 - Git submodule for centralized updates
-- Copy-in with a local sync script
+- Copy-in with a local helper script
 
 Choice
-- Copy-in. Provide `scripts/sync-rules.sh` for easy updates.
+- Copy-in. Initially offered `scripts/sync-rules.sh` for easy updates; later retired in favor of manual steps.
 
 Rationale
-- Removes submodule complexity while still allowing periodic updates.
+- Removes submodule complexity while keeping a straightforward copy workflow.
 
 ## 2025-10-11 Decision: Consolidate assistant quickstarts
 
