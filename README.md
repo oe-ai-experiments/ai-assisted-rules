@@ -1,14 +1,14 @@
 # AI-Assisted Project Context
 
-Minimal, tool-agnostic guidance so any assistant (Claude Code, Codex CLI, Cursor, Gemini, …) can operate safely with Ovidiu.
+This repository is the lightweight playbook Ovidiu uses to keep every coding assistant aligned. Everything you need lives in a handful of Markdown files and a single optional hook—no helper scripts required.
 
-## Canonical Files (always at repo root)
-- `.ai_state` — shared session state; update after milestones or pauses.
-- `PROJECT_DECISIONS.md` — record choices and rationale.
-- `LESSONS_LEARNED.md` — capture insights discovered while working.
-- `FUTURE_CONSIDERATIONS.md` — note follow-ups or ideas for later.
+## Quickstart (copy into a new project)
+1. Copy `AGENTS.md`, `Claude.md`, `Codex.md`, and `.ai_state` (or create it from the template below).
+2. Add `PROJECT_DECISIONS.md`, `LESSONS_LEARNED.md`, and `FUTURE_CONSIDERATIONS.md` to the repo root.
+3. (Optional) Copy `.ai-assisted/hooks/pre-commit` into `.git/hooks/pre-commit` and run `chmod +x .git/hooks/pre-commit` to enable staged secret scanning.
+4. Read `AGENTS.md` with your assistant and begin logging decisions, lessons, and future ideas as you work.
 
-### `.ai_state` Template
+### `.ai_state` baseline
 ```json
 {
   "session_start": "",
@@ -22,58 +22,52 @@ Minimal, tool-agnostic guidance so any assistant (Claude Code, Codex CLI, Cursor
 }
 ```
 
-### Log Entry Templates
-- `PROJECT_DECISIONS.md`
-  ```
-  ## 2025-10-11 Decision: Title
-  Context
-  - ...
-  Options Considered
-  - ...
-  Choice
-  - ...
-  Rationale
-  - ...
-  ```
-- `LESSONS_LEARNED.md`
-  ```
-  ## 2025-10-11 Lesson: Title
-  Situation
-  - ...
-  Learning
-  - ...
-  Application
-  - ...
-  ```
-- `FUTURE_CONSIDERATIONS.md`
-  ```
-  ## 2025-10-11 Suggestion: Title
-  Situation
-  - ...
-  Future suggestions
-  - ...
-  ```
+## Canonical log files
+- `PROJECT_DECISIONS.md` – capture choices and why they were made.
+- `LESSONS_LEARNED.md` – log insights that should influence future work.
+- `FUTURE_CONSIDERATIONS.md` – track follow-ups, ideas, or deferred work.
 
-## Daily Cadence (all assistants)
-1. Read `.ai_state`, then skim the three logs for context.
-2. Declare your plan; keep it updated as work progresses.
-3. Annotate `.ai_state` and the logs in real time—never defer until the end.
-4. If writes are blocked, provide ready-to-paste patches or log entries.
-5. Pause for HIGH/CRITICAL risks and ask Ovidiu before proceeding.
+Use these mini-templates when appending entries:
+```
+## 2025-10-11 Decision: Title
+Context
+- ...
+Options Considered
+- ...
+Choice
+- ...
+Rationale
+- ...
 
-## Manual Copy-In (new repository)
-1. Copy `AGENTS.md`, `Claude.md`, `Codex.md`, and optionally `.ai-assisted/hooks/pre-commit`.
-2. Create the four canonical log files (use the templates above).
-3. For secret scanning, copy `.ai-assisted/hooks/pre-commit` into `.git/hooks/pre-commit` and run `chmod +x .git/hooks/pre-commit`. Install `gitleaks` locally to enable deep scans; otherwise the fallback regex check still runs.
-4. Update project-specific details (e.g., repo name, preferred prompts) directly in these Markdown files.
+## 2025-10-11 Lesson: Title
+Situation
+- ...
+Learning
+- ...
+Application
+- ...
 
-## Assistant Guides
-- `Claude.md` — Claude Code-specific quickstart, context pinning, escalation, prompt hygiene.
-- `Codex.md` — Codex CLI plan discipline, patching expectations, validation philosophy.
-- Other assistants can rely on `AGENTS.md` plus the shared cadence.
+## 2025-10-11 Suggestion: Title
+Situation
+- ...
+Future suggestions
+- ...
+```
 
-## Optional Resources
-- `.ai-assisted/hooks/pre-commit` — ready-to-copy secret scan hook.
-- `.ai-assisted/bootstrap/` — legacy automation scripts available if you prefer scripted setup.
+## Daily cadence for any assistant
+1. Read `.ai_state`, then skim the three logs.
+2. Declare a short plan and keep it updated.
+3. Update `.ai_state` and append log entries as soon as decisions or lessons surface.
+4. If the filesystem is read-only, output patches or fully formatted log snippets for a human to apply.
+5. Pause for HIGH/CRITICAL risks, checkpoint `.ai_state`, and ask Ovidiu before proceeding.
 
-Keep everything human-readable and in sync. When expectations change, update the relevant Markdown files and log the decision in `PROJECT_DECISIONS.md`.
+## Assistant-specific manuals
+- `Claude.md` – Claude Code quickstart, pinning strategy, and escalation protocol.
+- `Codex.md` – Codex CLI plan expectations, patching standards, and validation guidance.
+- Other assistants can rely on `AGENTS.md`, which describes the shared routine and manual setup.
+
+## Optional extras
+- `.ai-assisted/hooks/pre-commit` – copy to `.git/hooks/pre-commit` to run gitleaks (with regex fallback) on staged changes.
+- `.ai-assisted/bootstrap/` – legacy automation scripts retained only for convenience; the manual process above is the preferred path.
+
+Keep all instructions human-readable. When expectations change, update the relevant Markdown file and record the decision in `PROJECT_DECISIONS.md`.

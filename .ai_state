@@ -1,6 +1,6 @@
 {
   "session_start": "2025-10-11T15:17:39Z",
-  "current_focus": "Retire sync scripts and finalize simplified docs",
+  "current_focus": "Refresh README to reflect simplified workflow",
   "files_modified": [
     "AGENTS.md",
     "Claude.md",
@@ -9,10 +9,10 @@
     "FUTURE_CONSIDERATIONS.md",
     "PROJECT_DECISIONS.md",
     ".ai_state",
-    ".ai-assisted/rules",
     "PROJECT_DECISIONS.md",
     "README.md",
-    "scripts"
+    "scripts",
+    ".ai_state"
   ],
   "pending_tasks": [],
   "completed": [
@@ -25,12 +25,14 @@
     "2025-10-11 Documented repo structure and rule layout (Codex analysis)",
     "2025-10-11 Consolidated Claude and Codex guidance into single manuals",
     "2025-10-11 Removed legacy .ai-assisted/rules tree per Ovidiu request",
-    "2025-10-11 Removed scripts directory after migrating to manual workflow"
+    "2025-10-11 Removed scripts directory after migrating to manual workflow",
+    "2025-10-11 Rewrote README for manual-first assistant onboarding"
   ],
   "next_steps": [
     "Share updated Claude.md and Codex.md with collaborators",
     "Notify downstream projects that previously synced the rules tree",
-    "Confirm collaborators no longer rely on scripts/sync-rules.sh"
+    "Confirm collaborators no longer rely on scripts/sync-rules.sh",
+    "Distribute updated README to downstream repositories"
   ],
   "blockers": [],
   "last_checkpoint": "2025-10-11T19:44:59Z"
