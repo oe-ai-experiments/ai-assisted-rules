@@ -3,7 +3,7 @@
 This repository is the lightweight playbook Ovidiu uses to keep every coding assistant aligned. Everything you need lives in a handful of Markdown files and a single optional hook—no helper scripts required.
 
 ## Quickstart (copy into a new project)
-1. Copy `AGENTS.md`, `Claude.md`, `Codex.md`, and `.ai_state` (or create it from the template below).
+1. Copy `AGENTS.md`, `assistant-rules.md`, `Claude.md`, `Codex.md`, and `.ai_state` (or create it from the template below).
 2. Add `PROJECT_DECISIONS.md`, `LESSONS_LEARNED.md`, and `FUTURE_CONSIDERATIONS.md` to the repo root.
 3. (Optional) Copy `.ai-assisted/hooks/pre-commit` into `.git/hooks/pre-commit` and run `chmod +x .git/hooks/pre-commit` to enable staged secret scanning.
 4. Read `AGENTS.md` with your assistant and begin logging decisions, lessons, and future ideas as you work.
@@ -61,10 +61,11 @@ Future suggestions
 4. If the filesystem is read-only, output patches or fully formatted log snippets for a human to apply.
 5. Pause for HIGH/CRITICAL risks, checkpoint `.ai_state`, and ask Ovidiu before proceeding.
 
-## Assistant-specific manuals
-- `Claude.md` – Claude Code quickstart, pinning strategy, and escalation protocol.
-- `Codex.md` – Codex CLI plan expectations, patching standards, and validation guidance.
-- Other assistants can rely on `AGENTS.md`, which describes the shared routine and manual setup.
+## Assistant-specific guides
+- `assistant-rules.md` – core partnership rules, communication protocol, and quality standards.
+- `Claude.md` – Claude Code quickstart checklist; defer to `assistant-rules.md` for shared expectations.
+- `Codex.md` – Codex CLI quickstart checklist and reminders; pair with `assistant-rules.md` for full guidance.
+- Other assistants can rely on `AGENTS.md`, which outlines the shared routine and manual setup.
 
 ## Optional extras
 - `.ai-assisted/hooks/pre-commit` – copy to `.git/hooks/pre-commit` to run gitleaks (with regex fallback) on staged changes.

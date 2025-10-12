@@ -1,6 +1,6 @@
 {
   "session_start": "2025-10-11T15:17:39Z",
-  "current_focus": "Refresh README to reflect simplified workflow",
+  "current_focus": "Prepare commit for assistant-rules.md",
   "files_modified": [
     "AGENTS.md",
     "Claude.md",
@@ -12,7 +12,8 @@
     "PROJECT_DECISIONS.md",
     "README.md",
     "scripts",
-    ".ai_state"
+    ".ai_state",
+    "assistant-rules.md"
   ],
   "pending_tasks": [],
   "completed": [
@@ -26,14 +27,19 @@
     "2025-10-11 Consolidated Claude and Codex guidance into single manuals",
     "2025-10-11 Removed legacy .ai-assisted/rules tree per Ovidiu request",
     "2025-10-11 Removed scripts directory after migrating to manual workflow",
-    "2025-10-11 Rewrote README for manual-first assistant onboarding"
+    "2025-10-11 Rewrote README for manual-first assistant onboarding",
+    "2025-10-12 Reviewed assistant-rules.md instructions",
+    "2025-10-12 Updated .ai_state for commit prep",
+    "2025-10-12 Staged assistant-rules commit files",
+    "2025-10-12 Inspected manual and README diffs",
+    "2025-10-12 Updated README to reference assistant rules",
+    "2025-10-12 Staged manuals and README for commit",
+    "2025-10-12 Removed legacy rules/templates artifacts"
   ],
   "next_steps": [
-    "Share updated Claude.md and Codex.md with collaborators",
-    "Notify downstream projects that previously synced the rules tree",
-    "Confirm collaborators no longer rely on scripts/sync-rules.sh",
-    "Distribute updated README to downstream repositories"
+    "Commit assistant-rules docs update",
+    "Push branch to origin/main"
   ],
   "blockers": [],
-  "last_checkpoint": "2025-10-11T19:44:59Z"
+  "last_checkpoint": "2025-10-12T07:37:58Z"
 }

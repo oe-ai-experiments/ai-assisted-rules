@@ -63,3 +63,18 @@ Choice
 
 Rationale
 - Simplifies onboarding, eliminates outdated instructions, and avoids confusion from parallel guidance sources.
+
+## 2025-10-12 Decision: Prepare assistant-rules commit
+
+Context
+- Untracked `assistant-rules.md` reintroduces core partnership guidelines that need to be versioned.
+
+Options Considered
+- Leave the file untracked for manual reference.
+- Stage and commit the file to restore the canonical rules document.
+
+Choice
+- Stage and commit `assistant-rules.md` with the existing content.
+
+Rationale
+- Keeps the rules under version control and aligns local repo state with intended instructions.
